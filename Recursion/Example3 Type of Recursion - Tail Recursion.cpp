@@ -18,7 +18,7 @@ int main()
     return 0;
 }
 //Time Complexity = O(n)
-//Space Complexity = O(n+1)
+//Space Complexity = O(n)
 */
 /*
 void func1 (int n)
