@@ -1,2 +1,2 @@
 # DSAlgo
-Important codes to understand different codes of Data Structures and Algorithm
+Important codes to understand different Data Structures and Algorithms
