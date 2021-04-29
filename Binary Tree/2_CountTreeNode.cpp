@@ -133,14 +133,18 @@ void bfsNewline(node* root)
 	}
 }
 
+int countNodeTree(node* root)
+{
+	if(root == NULL)
+		return 0;
+	return 1 + countNodeTree(root -> left) + countNodeTree(root -> right);
+}
+
 int main()
 {
 	// SAMPLE : 2 3 7 -1 -1 11 8 -1 -1 -1 4 0 5 -1 -1 6 -1 -1 1 -1 -1
 	node* ROOT = buildTree();
-	// preorderPrintTree(ROOT);
-	// cout<<heightTree(ROOT);
-	// printkthLevelTree(ROOT, 3);
-	// allLevelPrintTree(ROOT);
 	bfs(ROOT);
+	cout<<"\n"<<countNodeTree(ROOT);
 	return 0;
 }

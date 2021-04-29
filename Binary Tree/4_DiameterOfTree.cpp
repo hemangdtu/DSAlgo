@@ -133,14 +133,45 @@ void bfsNewline(node* root)
 	}
 }
 
+int diameterTree(node* root) // Time Complexity : O(N^2)
+{
+	if(root == NULL)
+		return 0;
+	int h1 = heightTree(root -> left);
+	int h2 = heightTree(root -> right);
+	int op1 = h1 + h2;
+	int op2 = diameterTree(root -> left);
+	int op3 = diameterTree(root -> right);
+	return max(op1, max(op2, op3));
+}
+
+class Pair{
+public:
+	int height, diameter;
+};
+
+Pair diameterTreeOptimized(node* root)
+{
+	// Based on Post Order Traversal
+	Pair p;
+	if(root == NULL)
+	{
+		p.height = p.diameter = 0;
+		return p;
+	}
+	Pair left = diameterTreeOptimized(root -> left);
+	Pair right = diameterTreeOptimized(root -> right);
+
+	p.height = max(left.height, right.height) + 1;
+	p.diameter = max(left.height + right.height, max(left.diameter, right.diameter));
+	return p;
+}
+
 int main()
 {
 	// SAMPLE : 2 3 7 -1 -1 11 8 -1 -1 -1 4 0 5 -1 -1 6 -1 -1 1 -1 -1
 	node* ROOT = buildTree();
-	// preorderPrintTree(ROOT);
-	// cout<<heightTree(ROOT);
-	// printkthLevelTree(ROOT, 3);
-	// allLevelPrintTree(ROOT);
 	bfs(ROOT);
+	cout<<"\n"<<diameterTree(ROOT)<<"\n"<<diameterTreeOptimized(ROOT).diameter;
 	return 0;
 }
