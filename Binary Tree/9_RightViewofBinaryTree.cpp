@@ -171,10 +171,32 @@ node* buildTreeFromArray(int *arr, int s, int e)
 }
 
 void rightView(node* root)
-{}
+{
+	if (!root)
+		return ;
+	queue<node*> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        int n = q.size();
+        for(int i = 1; i <= n; i++)
+        {
+            node* temp = q.front();
+            q.pop();
+            if (i == n)
+                cout<<temp->data<<" -> ";
+            if (temp->left != NULL)
+                q.push(temp->left);
+            if (temp->right != NULL)
+                q.push(temp->right);
+        }
+    }
+}
 
 int main()
 {
 	// SAMPLE : 2 3 7 -1 -1 11 8 -1 -1 -1 4 0 5 -1 -1 6 -1 -1 1 -1 -1
+	node* ROOT = buildTree();
+	rightView(ROOT);
 	return 0;
 }
