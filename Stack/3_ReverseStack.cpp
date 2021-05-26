@@ -37,6 +37,31 @@ void reverseStack(stack<int> &s)
 	}
 }
 
+stack<int> insertAtBottom(stack<int> s, int data)
+{
+	if(s.empty())
+		s.push(data);
+	else
+	{
+		int temp = s.top();
+		s.pop();
+		s = insertAtBottom(s, data);
+		s.push(temp);
+	}
+	return s;
+}
+
+void reverseStackRecursive(stack<int>&s)
+{
+	if(s.empty())
+		return;
+	int temp = s.top();
+	s.pop();
+	reverseStackRecursive(s);
+	s = insertAtBottom(s, temp);
+	return;
+}
+
 int main()
 {
 	stack<int> s;
@@ -46,6 +71,10 @@ int main()
 	reverseStack(s);
 	cout<<"\n";
 
+	printStack(s);
+	cout<<"\n";
+
+	reverseStackRecursive(s);
 	printStack(s);
 
 	return 0;
