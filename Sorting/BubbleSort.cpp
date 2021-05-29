@@ -34,6 +34,26 @@ void bubbleSort(int *array, int size)
    }
 }
 
+void bubbleSortOptimized(int* arr, int n)
+{
+   int i, j;
+   bool swapped;
+   for(i = 0; i<n; i++)
+   {
+      swapped = false;
+      for(int j = 0; j<n-i-1; j++)
+      {
+         if(arr[j] > arr[j+1])
+         {
+            swapping(arr[j], arr[j+1]);
+            swapped = true;
+         }
+      }
+      if(swapped == false)
+         break;
+   }
+}
+
 int main()
 {
    int n;
@@ -48,7 +68,8 @@ int main()
    cout << "Array before Sorting: ";
    display(arr, n);
 
-   bubbleSort(arr, n);
+   bubbleSortOptimized(arr, n);
+   // bubbleSort(arr, n);
    
    cout << "Array after Sorting: ";
    display(arr, n);
