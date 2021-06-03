@@ -22,3 +22,12 @@ A graph is a data structure that consists of the following two components:
 * Maximum number of edges a graph can have : <sup>N</sup>C<sub>2</sub> = O(N<sup>2</sup>)
 * Minimum number of edges a graph can have : 0
 * Minimum number of edges a connected graph (tree) can have : N - 1
+
+#### Graph Traversals
+There are two ways to traverse a given graph, namely,
+* Breadth First Search (BFS)
+> The Breadth First Search (BFS) traversal is an algorithm, which is used to visit all of the nodes of a given graph. In this traversal algorithm one node is selected and then all of the adjacent nodes are visited one by one. After completing all of the adjacent vertices, it moves further to check another vertices and checks its adjacent vertices again.
+
+* Depth First Search (DFS)
+> The Depth First Search (DFS) is a graph traversal algorithm. In this algorithm one starting vertex is given, and when an adjacent vertex is found, it moves to that adjacent vertex first and try to traverse in the same manner.
+
