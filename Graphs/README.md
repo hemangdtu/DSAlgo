@@ -31,3 +31,6 @@ There are two ways to traverse a given graph, namely,
 * Depth First Search (DFS)
 > The Depth First Search (DFS) is a graph traversal algorithm. In this algorithm one starting vertex is given, and when an adjacent vertex is found, it moves to that adjacent vertex first and try to traverse in the same manner.
 
+#### Topological Sort
+* Topological sorting of vertices of a Directed Acyclic Graph is an ordering of the vertices *v<sub>1</sub>* , *v<sub>2</sub>* , *v<sub>3</sub>* , ...., *v<sub>n</sub>* in such a way, that if there is an edge directed towards vertex *v<sub>j</sub>* from vertex *v<sub>i</sub>* , then *v<sub>i</sub>* comes before *v<sub>j</sub>* .
+* This can be easily implemented with the help of DFS graph traversal and by maintaining a stack.

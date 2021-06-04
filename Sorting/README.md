@@ -1,0 +1,14 @@
+# Sorting Techniques
+- [x] Insertion Sort
+- [x] Bubble Sort
+- [x] Selection Sort
+- [x] Merge Sort
+- [ ] Quick Sort
+- [ ] Counting Sort
+- [ ] DNF Sort
+- [ ] Wave Sort
+- [ ] Bucket Sort
+- [ ] Heap Sort
+- [ ] Timsort
+- [ ] Shell Sort
+- [ ] Radix Sort
