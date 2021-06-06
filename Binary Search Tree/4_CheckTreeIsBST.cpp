@@ -80,47 +80,11 @@ void inorderPrint(node* root)
 	inorderPrint(root -> right);
 }
 
-node* deleteElementInBST(node* root, int element)
+bool isBST(node* root, int minVal = INT_MIN, int maxVal = INT_MAX)
 {
 	if(root == NULL)
-		return NULL;
-	else if(element < root -> data)
-	{
-		root -> left = deleteElementInBST(root -> left, element);
-		return root;
-	}
-	else if(element > root -> data)
-	{
-		root -> right = deleteElementInBST(root -> right, element);
-		return root;
-	}
-	else
-	{
-		if(root -> left == NULL && root -> right == NULL) // 0 children
-		{
-			delete root;
-			return NULL;
-		}
-		if(root -> left != NULL && root -> right == NULL) // 1 child
-		{
-			node* temp = root -> left;
-			delete root;
-			return temp;
-		}
-		if(root -> left == NULL && root -> right != NULL) // 1 child
-		{
-			node* temp = root -> right;
-			delete root;
-			return temp;
-		}
-
-		node* replace = root -> right;	// 2 children
-		while(replace -> left != NULL)	// Finding inorder successor in right sub tree
-			replace = replace -> left;
-		root -> data = replace -> data;
-		root -> right = deleteElementInBST(root -> right, replace -> data);
-		return root;
-	}
+		return true;
+	return (root -> data >= minVal && root -> data < maxVal && isBST(root -> left, minVal, root -> data) && isBST(root -> right, root -> data, maxVal));
 }
 
 istream& operator>>(istream &is, node*&root)
@@ -136,11 +100,10 @@ int main()
 	node* ROOT = NULL;
 	cin>>ROOT;
 
-	int deleteElement;
-	cin >> deleteElement;
-
-	cout<<"\n\n";
-	ROOT = deleteElementInBST(ROOT, deleteElement);
-	bfsNewline(ROOT);
+	cout<<"\n";
+	if(isBST(ROOT))
+		cout << "Yes, this is a BST!";
+	else
+		cout << "No, this is not a BST!";
 	return 0;
 }
