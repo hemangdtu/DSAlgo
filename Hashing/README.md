@@ -16,7 +16,7 @@ A hash table is a data structure that is used to store keys/value pairs. It uses
 If we have a table with *Food Items* as key and their *Price* as the value in Hash Map, then,
 - Here, the "string key" is converted into an integer value which corresponds to a memory location where the value is present.
 This idea can be expressed as follows,
-> Hash["string key"] &rarr; Integer Value
+	> Hash["string key"] &rarr; Integer Value
 
 	In simple words we can also say that, based on whatever key you use a hashing function is applied which will map your specific key into an index. A hashing function should ideally be easy to compute, have uniform distribution, and avoid collisions.
 
