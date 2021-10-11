@@ -5,6 +5,11 @@ using namespace std;
 
 void bruteforce(int* arr, int size)
 {
+	if(size == 0)
+	{
+		cout << "-1";
+		return;
+	}
 	vector<int> result(size);
 	for(int i = 0; i<size; i++)
 	{
@@ -23,6 +28,10 @@ vector<int> optimization(int* arr, int size)
 {
 	vector<int> result;
 	stack<int> numberBucket;
+	
+	if(size == 0)
+		return {-1};
+
 	for(int i = size - 1; i>=0; i--)
 	{
 		if(numberBucket.empty())
@@ -31,7 +40,7 @@ vector<int> optimization(int* arr, int size)
 		{
 			while(numberBucket.top() <= arr[i] && !numberBucket.empty())
 				numberBucket.pop();
-			
+
 			if(numberBucket.empty())
 				result.push_back(-1);
 			else
